@@ -5,39 +5,52 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Blizzards FC U8</title>
   <style>
-    body { font-family: Arial, sans-serif; background:#f4f6fa; margin:0; color:#111; }
-    header { background:#1e3a8a; color:#fff; padding:16px; }
-    header h1 { margin:0; font-size:20px; }
-    nav { margin-top:8px; display:flex; gap:12px; flex-wrap:wrap; }
-    nav a { color:#fff; text-decoration:underline; font-size:14px; }
-    .wrap { max-width:1200px; margin:0 auto; padding:14px; }
-    .grid { display:grid; grid-template-columns: repeat(12, 1fr); gap:12px; }
-    .card { background:#fff; border-radius:14px; padding:12px; box-shadow: 0 2px 10px rgba(0,0,0,.06); }
-    .card h2 { margin:0 0 8px; font-size:16px; }
-    .kpis { display:grid; grid-template-columns: repeat(4, 1fr); gap:10px; }
-    .kpi { background:#f7f8ff; border-radius:12px; padding:10px; text-align:center; }
-    .kpi .v { font-size:20px; font-weight:bold; }
-    .kpi .l { font-size:12px; color:#555; margin-top:4px; }
-    .badge { display:inline-block; padding:2px 8px; border-radius:999px; font-size:12px; background:#eef2ff; margin-right:6px; }
-    .win { color: #0a7a2f; font-weight:bold; }
-    .draw { color: #b45309; font-weight:bold; }
-    .loss { color: #b91c1c; font-weight:bold; }
-    table { width:100%; border-collapse:collapse; }
-    th { text-align:left; font-size:12px; color:#555; padding:8px 6px; border-bottom:1px solid #e6e6e6; }
-    td { padding:8px 6px; border-bottom:1px solid #f0f0f0; font-size:14px; }
-    tr:last-child td { border-bottom:none; }
-    .span-12 { grid-column: span 12; }
-    .span-6 { grid-column: span 6; }
-    .muted { color:#666; font-size:13px; }
-    @media (max-width: 900px) {
-      .span-6 { grid-column: span 12; }
-      .kpis { grid-template-columns: repeat(2, 1fr); }
+    :root{
+      --blue:#1e3a8a;
+      --bg:#f4f6fa;
+      --card:#fff;
+      --line:#e6e6e6;
+      --muted:#666;
+      --shadow:0 2px 10px rgba(0,0,0,.06);
+      --radius:14px;
     }
+    body{font-family:Arial,sans-serif;background:var(--bg);margin:0;color:#111;}
+    header{background:var(--blue);color:#fff;padding:16px;}
+    header h1{margin:0;font-size:20px;}
+    nav{margin-top:8px;display:flex;gap:12px;flex-wrap:wrap}
+    nav a{color:#fff;text-decoration:underline;font-size:14px}
+    .wrap{max-width:1200px;margin:0 auto;padding:14px}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
+    .card{background:var(--card);border-radius:var(--radius);padding:12px;box-shadow:var(--shadow)}
+    .card h2{margin:0 0 8px;font-size:16px}
+    .muted{color:var(--muted);font-size:13px}
+    .span-12{grid-column:span 12}
+    .span-6{grid-column:span 6}
+    @media (max-width: 900px){.span-6{grid-column:span 12}}
+
+    .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    .kpi{background:#f7f8ff;border-radius:12px;padding:10px;text-align:center}
+    .kpi .v{font-size:20px;font-weight:bold}
+    .kpi .l{font-size:12px;color:#555;margin-top:4px}
+    @media (max-width: 900px){.kpis{grid-template-columns:repeat(2,1fr)}}
+
+    .badge{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;background:#eef2ff;margin-right:6px}
+    .win{color:#0a7a2f;font-weight:bold}
+    .draw{color:#b45309;font-weight:bold}
+    .loss{color:#b91c1c;font-weight:bold}
+
+    table{width:100%;border-collapse:collapse}
+    th{font-size:12px;color:#555;text-align:left;padding:8px 6px;border-bottom:1px solid var(--line)}
+    td{padding:8px 6px;border-bottom:1px solid #f0f0f0;font-size:14px}
+    tr:last-child td{border-bottom:none}
+
+    .right{text-align:right}
+    .center{text-align:center}
   </style>
 </head>
 <body>
   <header>
-    <h1>Blizzards FC U8 — 2025/26</h1>
+    <h1>Blizzards FC U8 — Home</h1>
     <nav>
       <a href="index.html">Home</a>
       <a href="results.html">Results</a>
@@ -48,107 +61,243 @@
   <div class="wrap">
     <div class="grid">
 
-      <!-- Season Snapshot (from your sheet totals) -->
       <div class="card span-12">
         <h2>Season snapshot</h2>
         <div class="kpis">
-          <div class="kpi"><div class="v">21</div><div class="l">Played</div></div>
-          <div class="kpi"><div class="v">10-3-8</div><div class="l">W-D-L</div></div>
-          <div class="kpi"><div class="v">74-56</div><div class="l">GF-GA</div></div>
-          <div class="kpi"><div class="v">33</div><div class="l">Points</div></div>
+          <div class="kpi"><div class="v" id="kPlayed">—</div><div class="l">Played</div></div>
+          <div class="kpi"><div class="v" id="kWDL">—</div><div class="l">W-D-L</div></div>
+          <div class="kpi"><div class="v" id="kGFGA">—</div><div class="l">GF-GA</div></div>
+          <div class="kpi"><div class="v" id="kPts">—</div><div class="l">Points</div></div>
         </div>
         <div class="muted" style="margin-top:10px;">
-          Goal difference: <b>18</b> • Recent form: <b>L D W D L</b>
+          Goal difference: <b id="kGD">—</b> • Last updated: <b id="lastUpdated">—</b>
         </div>
       </div>
 
-      <!-- Latest Match (latest scored match in your sheet) -->
       <div class="card span-6">
         <h2>Latest match</h2>
-        <div style="font-size:14px; margin-bottom:6px;">
-          <span class="badge">League</span>
-          <span class="badge">Home</span>
-          <span class="badge">27/02/2026</span>
-        </div>
-        <div style="font-size:16px; font-weight:bold; margin-bottom:6px;">
-          Blizzards 3-7 Wickford Town Youth
-        </div>
-        <div style="font-size:14px;">
-          Result: <span class="loss">Loss</span> • MOTM: <b>Kiimi</b>
-        </div>
+        <div id="latestMeta" style="font-size:14px;margin-bottom:6px;"></div>
+        <div id="latestLine" style="font-size:16px;font-weight:bold;margin-bottom:6px;">—</div>
+        <div id="latestExtra" style="font-size:14px;">—</div>
         <div class="muted" style="margin-top:10px;">
-          (You can edit this block any time if you want it to reflect the very latest game.)
+          Tip: this updates automatically from <code>results.csv</code>.
         </div>
       </div>
 
-      <!-- Leaders -->
       <div class="card span-6">
         <h2>Leaders</h2>
-        <table>
+        <table id="leadersTbl">
           <tr><th>Category</th><th>1st</th><th>2nd</th><th>3rd</th></tr>
-          <tr>
-            <td>Goals</td>
-            <td>Layton (16)</td>
-            <td>Max (13)</td>
-            <td>Lucas (11)</td>
-          </tr>
-          <tr>
-            <td>Assists</td>
-            <td>Lucas (7)</td>
-            <td>Syd (5)</td>
-            <td>Max (4)</td>
-          </tr>
-          <tr>
-            <td>MOTM</td>
-            <td>Kiimi (4)</td>
-            <td>Max (3)</td>
-            <td>Syd (3)</td>
-          </tr>
+          <tr><td>Goals</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>Assists</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>MOTM</td><td>—</td><td>—</td><td>—</td></tr>
         </table>
-      </div>
-
-      <!-- Player stats table -->
-      <div class="card span-12">
-        <h2>Player stats</h2>
-        <table>
-          <tr>
-            <th>Player</th>
-            <th style="text-align:center;">Goals</th>
-            <th style="text-align:center;">Assists</th>
-            <th style="text-align:center;">MOTM</th>
-          </tr>
-          <tr><td>Layton</td><td style="text-align:center">16</td><td style="text-align:center">3</td><td style="text-align:center">1</td></tr>
-          <tr><td>Max</td><td style="text-align:center">13</td><td style="text-align:center">4</td><td style="text-align:center">3</td></tr>
-          <tr><td>Lucas</td><td style="text-align:center">11</td><td style="text-align:center">7</td><td style="text-align:center">1</td></tr>
-          <tr><td>Kiimi</td><td style="text-align:center">9</td><td style="text-align:center">0</td><td style="text-align:center">4</td></tr>
-          <tr><td>Albie</td><td style="text-align:center">8</td><td style="text-align:center">1</td><td style="text-align:center">2</td></tr>
-          <tr><td>Syd</td><td style="text-align:center">8</td><td style="text-align:center">5</td><td style="text-align:center">3</td></tr>
-          <tr><td>Vinny</td><td style="text-align:center">3</td><td style="text-align:center">0</td><td style="text-align:center">1</td></tr>
-          <tr><td>Chester</td><td style="text-align:center">1</td><td style="text-align:center">0</td><td style="text-align:center">0</td></tr>
-          <tr><td>George W</td><td style="text-align:center">1</td><td style="text-align:center">0</td><td style="text-align:center">0</td></tr>
-          <tr><td>Samuel</td><td style="text-align:center">1</td><td style="text-align:center">0</td><td style="text-align:center">1</td></tr>
-          <tr><td>Amari</td><td style="text-align:center">0</td><td style="text-align:center">0</td><td style="text-align:center">2</td></tr>
-        </table>
-
         <div class="muted" style="margin-top:10px;">
-          Next upgrade (optional): I can make this auto-update from a CSV so you never edit HTML again.
+          (Edit <code>players.csv</code> to update these.)
         </div>
       </div>
 
-      <!-- Recommendations -->
+      <div class="card span-12">
+        <h2>Player stats</h2>
+        <table id="playersTbl">
+          <tr>
+            <th>Player</th>
+            <th class="center">Goals</th>
+            <th class="center">Assists</th>
+            <th class="center">MOTM</th>
+          </tr>
+        </table>
+      </div>
+
       <div class="card span-12">
         <h2>What should be on the Home page (recommended)</h2>
-        <ul class="muted" style="margin:0; padding-left:18px; line-height:1.5;">
-          <li><b>Latest match</b> + MOTM (what parents look for first).</li>
+        <ul class="muted" style="margin:0;padding-left:18px;line-height:1.5;">
+          <li><b>Latest match</b> + MOTM (parents look for this first).</li>
           <li><b>Season snapshot</b> (Played / W-D-L / GF-GA / Points).</li>
           <li><b>Leaders</b> (Top scorers, assists, MOTM).</li>
           <li><b>Quick links</b> to Results + BTFC Results Comparison.</li>
-          <li><b>Next fixture</b> (optional) and a short “team news” note.</li>
-          <li><b>Photos</b> (optional): 1–3 good action shots makes the site feel “real”.</li>
+          <li><b>Next fixture</b> + kickoff time (optional).</li>
+          <li><b>Photos</b> (optional): 1–3 good action shots makes it feel “real”.</li>
         </ul>
       </div>
 
     </div>
   </div>
+
+<script>
+  // --- Tiny CSV parser (handles commas + quotes) ---
+  function parseCSV(text){
+    const rows = [];
+    let i=0, field="", row=[], inQuotes=false;
+    while(i<text.length){
+      const c=text[i];
+      if(inQuotes){
+        if(c === '"'){
+          if(text[i+1] === '"'){ field+='"'; i++; }
+          else inQuotes=false;
+        } else field+=c;
+      } else {
+        if(c === '"') inQuotes=true;
+        else if(c === ','){ row.push(field); field=""; }
+        else if(c === '\n'){ row.push(field); rows.push(row); row=[]; field=""; }
+        else if(c !== '\r') field+=c;
+      }
+      i++;
+    }
+    if(field.length || row.length){ row.push(field); rows.push(row); }
+    return rows;
+  }
+
+  function dmyToDate(dmy){
+    // expects dd/mm/yyyy
+    const [dd,mm,yyyy] = dmy.split('/').map(x=>parseInt(x,10));
+    if(!dd||!mm||!yyyy) return null;
+    return new Date(Date.UTC(yyyy, mm-1, dd));
+  }
+
+  function clsForResult(r){
+    const x=(r||"").toLowerCase();
+    if(x==="win") return "win";
+    if(x==="draw") return "draw";
+    if(x==="loss") return "loss";
+    return "";
+  }
+
+  function todayDMY(){
+    const d = new Date();
+    const dd = String(d.getDate()).padStart(2,'0');
+    const mm = String(d.getMonth()+1).padStart(2,'0');
+    const yy = d.getFullYear();
+    return `${dd}/${mm}/${yy}`;
+  }
+
+  async function loadResults(){
+    const res = await fetch('results.csv', {cache:'no-store'});
+    const text = await res.text();
+    const rows = parseCSV(text);
+    const header = rows[0].map(h=>h.trim());
+    const idx = (name)=>header.indexOf(name);
+
+    const out = [];
+    for(let r=1;r<rows.length;r++){
+      if(rows[r].length===1 && rows[r][0].trim()==="") continue;
+      const obj = {};
+      header.forEach((h,ci)=> obj[h]= (rows[r][ci]||"").trim());
+      // skip completely empty lines
+      if(!obj["Date"] || !obj["Opponent"]) continue;
+      out.push(obj);
+    }
+    return out;
+  }
+
+  async function loadPlayers(){
+    const res = await fetch('players.csv', {cache:'no-store'});
+    const text = await res.text();
+    const rows = parseCSV(text);
+    const header = rows[0].map(h=>h.trim());
+    const out = [];
+    for(let r=1;r<rows.length;r++){
+      const obj={};
+      header.forEach((h,ci)=>obj[h]=(rows[r][ci]||"").trim());
+      if(!obj.Player) continue;
+      obj.Goals = parseInt(obj.Goals||"0",10)||0;
+      obj.Assists = parseInt(obj.Assists||"0",10)||0;
+      obj.MOTM = parseInt(obj.MOTM||"0",10)||0;
+      out.push(obj);
+    }
+    return out;
+  }
+
+  function top3(arr, key){
+    return [...arr].sort((a,b)=> (b[key]-a[key]) || a.Player.localeCompare(b.Player)).slice(0,3);
+  }
+
+  function fmtTop3(t){
+    return t.map(x=> `${x.Player} (${x.value})`);
+  }
+
+  (async function(){
+    // Last updated
+    document.getElementById('lastUpdated').textContent = todayDMY();
+
+    // Results -> snapshot + latest
+    const results = await loadResults();
+
+    let played=0,w=0,d=0,l=0,gf=0,ga=0;
+    let latest=null, latestDate=null;
+
+    results.forEach(m=>{
+      const our = parseInt(m["Blizzards GF"]||m["Our Score"]||"0",10)||0;
+      const opp = parseInt(m["Opp GA"]||m["Their Score"]||"0",10)||0;
+      const date = dmyToDate(m["Date"]);
+      if(!date) return;
+      played++; gf+=our; ga+=opp;
+
+      const r=(m["Result"]||"").toLowerCase();
+      if(r==="win") w++;
+      else if(r==="draw") d++;
+      else if(r==="loss") l++;
+
+      if(!latestDate || date>latestDate){ latestDate=date; latest=m; }
+    });
+
+    const pts = w*3 + d*1;
+    document.getElementById('kPlayed').textContent = played;
+    document.getElementById('kWDL').textContent = `${w}-${d}-${l}`;
+    document.getElementById('kGFGA').textContent = `${gf}-${ga}`;
+    document.getElementById('kPts').textContent = pts;
+    document.getElementById('kGD').textContent = (gf-ga);
+
+    if(latest){
+      const comp = latest["Competition"] ? `<span class="badge">${latest["Competition"]}</span>` : "";
+      const ha = latest["H/A"] ? `<span class="badge">${latest["H/A"]}</span>` : "";
+      const dt = latest["Date"] ? `<span class="badge">${latest["Date"]}</span>` : "";
+      document.getElementById('latestMeta').innerHTML = `${comp}${ha}${dt}`;
+
+      const score = (latest["Blizzards GF"]||"") + "-" + (latest["Opp GA"]||"");
+      document.getElementById('latestLine').textContent = `Blizzards ${score} ${latest["Opponent"]}`;
+
+      const rClass = clsForResult(latest["Result"]);
+      const rText = latest["Result"] || "—";
+      const motm = latest["MOTM"] || "—";
+      document.getElementById('latestExtra').innerHTML =
+        `Result: <span class="${rClass}">${rText}</span> • MOTM: <b>${motm}</b>`;
+    }
+
+    // Players -> table + leaders
+    const players = await loadPlayers();
+    const pt = document.getElementById('playersTbl');
+    players
+      .sort((a,b)=> (b.Goals-a.Goals) || (b.Assists-a.Assists) || (b.MOTM-a.MOTM) || a.Player.localeCompare(b.Player))
+      .forEach(p=>{
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${p.Player}</td>
+          <td class="center">${p.Goals}</td>
+          <td class="center">${p.Assists}</td>
+          <td class="center">${p.MOTM}</td>
+        `;
+        pt.appendChild(tr);
+      });
+
+    const g3 = top3(players.map(p=>({Player:p.Player,value:p.Goals})), "value");
+    const a3 = top3(players.map(p=>({Player:p.Player,value:p.Assists})), "value");
+    const m3 = top3(players.map(p=>({Player:p.Player,value:p.MOTM})), "value");
+
+    const leaders = document.getElementById('leadersTbl').rows;
+    // rows: header=0, goals=1, assists=2, motm=3
+    leaders[1].cells[1].textContent = g3[0] ? `${g3[0].Player} (${g3[0].value})` : "—";
+    leaders[1].cells[2].textContent = g3[1] ? `${g3[1].Player} (${g3[1].value})` : "—";
+    leaders[1].cells[3].textContent = g3[2] ? `${g3[2].Player} (${g3[2].value})` : "—";
+
+    leaders[2].cells[1].textContent = a3[0] ? `${a3[0].Player} (${a3[0].value})` : "—";
+    leaders[2].cells[2].textContent = a3[1] ? `${a3[1].Player} (${a3[1].value})` : "—";
+    leaders[2].cells[3].textContent = a3[2] ? `${a3[2].Player} (${a3[2].value})` : "—";
+
+    leaders[3].cells[1].textContent = m3[0] ? `${m3[0].Player} (${m3[0].value})` : "—";
+    leaders[3].cells[2].textContent = m3[1] ? `${m3[1].Player} (${m3[1].value})` : "—";
+    leaders[3].cells[3].textContent = m3[2] ? `${m3[2].Player} (${m3[2].value})` : "—";
+  })();
+</script>
 </body>
 </html>
