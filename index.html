@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Blizzards FC U8</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#f4f6fa; margin:0; color:#111; }
+    header { background:#1e3a8a; color:#fff; padding:16px; }
+    header h1 { margin:0; font-size:20px; }
+    nav { margin-top:8px; display:flex; gap:12px; flex-wrap:wrap; }
+    nav a { color:#fff; text-decoration:underline; font-size:14px; }
+    .wrap { max-width:1200px; margin:0 auto; padding:14px; }
+    .grid { display:grid; grid-template-columns: repeat(12, 1fr); gap:12px; }
+    .card { background:#fff; border-radius:14px; padding:12px; box-shadow: 0 2px 10px rgba(0,0,0,.06); }
+    .card h2 { margin:0 0 8px; font-size:16px; }
+    .kpis { display:grid; grid-template-columns: repeat(4, 1fr); gap:10px; }
+    .kpi { background:#f7f8ff; border-radius:12px; padding:10px; text-align:center; }
+    .kpi .v { font-size:20px; font-weight:bold; }
+    .kpi .l { font-size:12px; color:#555; margin-top:4px; }
+    .badge { display:inline-block; padding:2px 8px; border-radius:999px; font-size:12px; background:#eef2ff; margin-right:6px; }
+    .win { color: #0a7a2f; font-weight:bold; }
+    .draw { color: #b45309; font-weight:bold; }
+    .loss { color: #b91c1c; font-weight:bold; }
+    table { width:100%; border-collapse:collapse; }
+    th { text-align:left; font-size:12px; color:#555; padding:8px 6px; border-bottom:1px solid #e6e6e6; }
+    td { padding:8px 6px; border-bottom:1px solid #f0f0f0; font-size:14px; }
+    tr:last-child td { border-bottom:none; }
+    .span-12 { grid-column: span 12; }
+    .span-6 { grid-column: span 6; }
+    .muted { color:#666; font-size:13px; }
+    @media (max-width: 900px) {
+      .span-6 { grid-column: span 12; }
+      .kpis { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Blizzards FC U8 — 2025/26</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="results.html">Results</a>
+      <a href="btfc-results-comparison.html">BTFC Results Comparison</a>
+    </nav>
+  </header>
+
+  <div class="wrap">
+    <div class="grid">
+
+      <!-- Season Snapshot (from your sheet totals) -->
+      <div class="card span-12">
+        <h2>Season snapshot</h2>
+        <div class="kpis">
+          <div class="kpi"><div class="v">21</div><div class="l">Played</div></div>
+          <div class="kpi"><div class="v">10-3-8</div><div class="l">W-D-L</div></div>
+          <div class="kpi"><div class="v">74-56</div><div class="l">GF-GA</div></div>
+          <div class="kpi"><div class="v">33</div><div class="l">Points</div></div>
+        </div>
+        <div class="muted" style="margin-top:10px;">
+          Goal difference: <b>18</b> • Recent form: <b>L D W D L</b>
+        </div>
+      </div>
+
+      <!-- Latest Match (latest scored match in your sheet) -->
+      <div class="card span-6">
+        <h2>Latest match</h2>
+        <div style="font-size:14px; margin-bottom:6px;">
+          <span class="badge">League</span>
+          <span class="badge">Home</span>
+          <span class="badge">27/02/2026</span>
+        </div>
+        <div style="font-size:16px; font-weight:bold; margin-bottom:6px;">
+          Blizzards 3-7 Wickford Town Youth
+        </div>
+        <div style="font-size:14px;">
+          Result: <span class="loss">Loss</span> • MOTM: <b>Kiimi</b>
+        </div>
+        <div class="muted" style="margin-top:10px;">
+          (You can edit this block any time if you want it to reflect the very latest game.)
+        </div>
+      </div>
+
+      <!-- Leaders -->
+      <div class="card span-6">
+        <h2>Leaders</h2>
+        <table>
+          <tr><th>Category</th><th>1st</th><th>2nd</th><th>3rd</th></tr>
+          <tr>
+            <td>Goals</td>
+            <td>Layton (16)</td>
+            <td>Max (13)</td>
+            <td>Lucas (11)</td>
+          </tr>
+          <tr>
+            <td>Assists</td>
+            <td>Lucas (7)</td>
+            <td>Syd (5)</td>
+            <td>Max (4)</td>
+          </tr>
+          <tr>
+            <td>MOTM</td>
+            <td>Kiimi (4)</td>
+            <td>Max (3)</td>
+            <td>Syd (3)</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Player stats table -->
+      <div class="card span-12">
+        <h2>Player stats</h2>
+        <table>
+          <tr>
+            <th>Player</th>
+            <th style="text-align:center;">Goals</th>
+            <th style="text-align:center;">Assists</th>
+            <th style="text-align:center;">MOTM</th>
+          </tr>
+          <tr><td>Layton</td><td style="text-align:center">16</td><td style="text-align:center">3</td><td style="text-align:center">1</td></tr>
+          <tr><td>Max</td><td style="text-align:center">13</td><td style="text-align:center">4</td><td style="text-align:center">3</td></tr>
+          <tr><td>Lucas</td><td style="text-align:center">11</td><td style="text-align:center">7</td><td style="text-align:center">1</td></tr>
+          <tr><td>Kiimi</td><td style="text-align:center">9</td><td style="text-align:center">0</td><td style="text-align:center">4</td></tr>
+          <tr><td>Albie</td><td style="text-align:center">8</td><td style="text-align:center">1</td><td style="text-align:center">2</td></tr>
+          <tr><td>Syd</td><td style="text-align:center">8</td><td style="text-align:center">5</td><td style="text-align:center">3</td></tr>
+          <tr><td>Vinny</td><td style="text-align:center">3</td><td style="text-align:center">0</td><td style="text-align:center">1</td></tr>
+          <tr><td>Chester</td><td style="text-align:center">1</td><td style="text-align:center">0</td><td style="text-align:center">0</td></tr>
+          <tr><td>George W</td><td style="text-align:center">1</td><td style="text-align:center">0</td><td style="text-align:center">0</td></tr>
+          <tr><td>Samuel</td><td style="text-align:center">1</td><td style="text-align:center">0</td><td style="text-align:center">1</td></tr>
+          <tr><td>Amari</td><td style="text-align:center">0</td><td style="text-align:center">0</td><td style="text-align:center">2</td></tr>
+        </table>
+
+        <div class="muted" style="margin-top:10px;">
+          Next upgrade (optional): I can make this auto-update from a CSV so you never edit HTML again.
+        </div>
+      </div>
+
+      <!-- Recommendations -->
+      <div class="card span-12">
+        <h2>What should be on the Home page (recommended)</h2>
+        <ul class="muted" style="margin:0; padding-left:18px; line-height:1.5;">
+          <li><b>Latest match</b> + MOTM (what parents look for first).</li>
+          <li><b>Season snapshot</b> (Played / W-D-L / GF-GA / Points).</li>
+          <li><b>Leaders</b> (Top scorers, assists, MOTM).</li>
+          <li><b>Quick links</b> to Results + BTFC Results Comparison.</li>
+          <li><b>Next fixture</b> (optional) and a short “team news” note.</li>
+          <li><b>Photos</b> (optional): 1–3 good action shots makes the site feel “real”.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
