@@ -250,6 +250,8 @@
     document.getElementById('kPlayed').textContent = played;
     document.getElementById('kWDL').textContent = `${w}-${d}-${l}`;
     document.getElementById('kGFGA').textContent = `${gf}-${ga}`;
+    document.getElementById('kGPG').textContent = played ? (gf/played).toFixed(2) : "0.00";
+    document.getElementById('kCPG').textContent = played ? (ga/played).toFixed(2) : "0.00";
     document.getElementById('kPts').textContent = pts;
     document.getElementById('kGD').textContent = (gf-ga);
 
