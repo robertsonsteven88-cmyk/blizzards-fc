@@ -1,51 +1,249 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Blizzards FC Results</title>
-<style>
-body { font-family: Arial; text-align:center; background:#f4f6fa; }
-h1 { background:#1e3a8a; color:white; padding:15px; }
-table { margin:auto; border-collapse:collapse; width:95%; background:white; }
-th { background:#1e3a8a; color:white; padding:10px; }
-td { padding:8px; border-bottom:1px solid #ddd; }
-.win { color:green; font-weight:bold; }
-.draw { color:orange; font-weight:bold; }
-.loss { color:red; font-weight:bold; }
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Blizzards FC Results</title>
+  <style>
+    :root{
+      --blue:#1e3a8a; --bg:#f4f6fa; --card:#fff; --line:#e6e6e6; --muted:#666;
+      --shadow:0 2px 10px rgba(0,0,0,.06); --radius:14px;
+    }
+    body{font-family:Arial,sans-serif;background:var(--bg);margin:0;color:#111;}
+    header{background:var(--blue);color:#fff;padding:16px;}
+    header h1{margin:0;font-size:20px;}
+    nav{margin-top:8px;display:flex;gap:12px;flex-wrap:wrap}
+    nav a{color:#fff;text-decoration:underline;font-size:14px}
+    .wrap{max-width:1200px;margin:0 auto;padding:14px}
+    .card{background:var(--card);border-radius:var(--radius);padding:12px;box-shadow:var(--shadow)}
+    .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    .muted{color:var(--muted);font-size:13px}
+    input,select{padding:10px;border-radius:10px;border:1px solid var(--line);font-size:14px;background:#fff}
+    table{width:100%;border-collapse:collapse}
+    th{font-size:12px;color:#555;text-align:left;padding:10px 6px;border-bottom:1px solid var(--line);cursor:pointer;user-select:none}
+    td{padding:10px 6px;border-bottom:1px solid #f0f0f0;font-size:14px;vertical-align:top}
+    tr:last-child td{border-bottom:none}
+    .win{color:#0a7a2f;font-weight:bold}
+    .draw{color:#b45309;font-weight:bold}
+    .loss{color:#b91c1c;font-weight:bold}
+    .pill{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;background:#eef2ff;margin-right:6px}
+    .toggle{color:#1e3a8a;text-decoration:underline;cursor:pointer;font-size:13px}
+    .hidden{display:none}
+    .scrollX{overflow-x:auto}
+    .center{text-align:center}
+    .nowrap{white-space:nowrap}
+  </style>
 </head>
-<p style="margin:12px 0;">
-<a href="btfc-results-comparison.html">BTFC Results Comparison</a>
-</p>
 <body>
-<h1>Blizzards FC U8 Results</h1>
-<table>
-<tr>
-<th>Date</th><th>Competition</th><th>H/A</th><th>Opponent</th><th>Score</th><th>Result</th><th>MOTM</th><th>Goals</th><th>Assists</th>
-</tr>
+  <header>
+    <h1>Blizzards FC U8 — Results</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="results.html">Results</a>
+      <a href="btfc-results-comparison.html">BTFC Results Comparison</a>
+    </nav>
+  </header>
 
-<tr><td>30/08/2025</td><td>Friendly</td><td>Away</td><td>Brentwood Youth AFC Lions</td><td>5-3</td><td class="win">Win</td><td></td><td>Kiimi, Kiimi, Syd, Layton</td><td></td></tr>
-<tr><td>30/08/2025</td><td>Friendly</td><td>Away</td><td>Brentwood Youth AFC Tigers</td><td>8-0</td><td class="win">Win</td><td></td><td>Layton, Layton, Layton, Syd, Syd, Kiimi, Layton, Kiimi</td><td></td></tr>
-<tr><td>06/09/2025</td><td>Friendly</td><td>Home</td><td>Hannakins Farm Yellows</td><td>1-6</td><td class="loss">Loss</td><td>Kiimi</td><td>Lucas</td><td></td></tr>
-<tr><td>13/09/2025</td><td>League</td><td>Home</td><td>Elite Colts Yellow</td><td>4-2</td><td class="win">Win</td><td>Max</td><td>Syd, Chester, Layton, Kiimi</td><td>Lucas, Max</td></tr>
-<tr><td>20/09/2025</td><td>League</td><td>Away</td><td>Tilbury Tekkers</td><td>3-2</td><td class="win">Win</td><td>Syd</td><td>Layton, Max, Lucas</td><td>Max</td></tr>
-<tr><td>27/09/2025</td><td>League</td><td>Home</td><td>Tigers Girls U9 Stripes</td><td>1-2</td><td class="loss">Loss</td><td>Samuel</td><td>Kiimi</td><td></td></tr>
-<tr><td>04/10/2025</td><td>Friendly</td><td>Home</td><td>Barking Wolves FC</td><td>5-5</td><td class="draw">Draw</td><td>Kiimi</td><td>Samuel, Layton, Max, Syd, Lucas</td><td>Syd, Max</td></tr>
-<tr><td>11/10/2025</td><td>League</td><td>Home</td><td>Little Canfield Stars</td><td>15-0</td><td class="win">Win</td><td>Syd</td><td>Layton, Layton, Layton, Syd, Syd, Max, Max, Max, Max, Lucas, Lucas, Lucas, Kiimi, Kiimi, Max, Lucas, Lucas, Syd, Syd, Layton</td><td></td></tr>
-<tr><td>18/10/2025</td><td>League</td><td>Away</td><td>Langley Colts Y Trojans</td><td>5-3</td><td class="win">Win</td><td>Amari</td><td>Layton, Lucas, Layton, Max, Lucas</td><td>Layton, Lucas, Lucas</td></tr>
-<tr><td>08/11/2025</td><td>League</td><td>Home</td><td>Ambition Y</td><td>2-4</td><td class="loss">Loss</td><td>Amari</td><td>George W, Syd</td><td>Albie</td></tr>
-<tr><td>15/11/2025</td><td>League</td><td>Away</td><td>Hannakins Farm Yellows</td><td>1-3</td><td class="loss">Loss</td><td>Albie</td><td>Albie</td><td>Lucas</td></tr>
-<tr><td>22/11/2025</td><td>League</td><td>Away</td><td>Hutton Y Yellow</td><td>1-3</td><td class="loss">Loss</td><td>Layton</td><td>Layton</td><td>Lucas</td></tr>
-<tr><td>29/11/2025</td><td>League</td><td>Home</td><td>Byron Red Star Y Buzzards</td><td>3-1</td><td class="win">Win</td><td>Max</td><td>Albie, Albie, Max</td><td>Syd</td></tr>
-<tr><td>06/12/2025</td><td>League</td><td>Away</td><td>Hannakins Farm Girls Bears</td><td>0-4</td><td class="loss">Loss</td><td>Syd</td><td></td><td></td></tr>
-<tr><td>13/12/2025</td><td>League</td><td>Home</td><td>Tilbury Y Tigers</td><td>6-1</td><td class="win">Win</td><td>Lucas</td><td>Lucas, Max, Max, Albie, Albie, Vinny</td><td>Syd</td></tr>
-<tr><td>03/01/2026</td><td>League</td><td>Home</td><td>Ambition Y</td><td>2-1</td><td class="win">Win</td><td>Vinny</td><td>Vinny, Vinny</td><td></td></tr>
-<tr><td>17/01/2026</td><td>League</td><td>Away</td><td>Hutton Y Yellow</td><td>0-4</td><td class="loss">Loss</td><td>Kiimi</td><td></td><td></td></tr>
-<tr><td>22/01/2026</td><td>League</td><td>Home</td><td>Hannakins Asteroids</td><td>1-1</td><td class="draw">Draw</td><td>Max</td><td>Max</td><td></td></tr>
-<tr><td>31/01/2026</td><td>Friendly</td><td>Away</td><td>Hannakin New</td><td>5-1</td><td class="win">Win</td><td>Albie</td><td>Lucas, Albie, Albie, Layton, Max</td><td>Max, Layton</td></tr>
-<tr><td>21/02/2026</td><td>Friendly</td><td>Away</td><td>Tilbury Tekkers</td><td>3-3</td><td class="draw">Draw</td><td>Alfie</td><td>Sid, Albie, Lucas</td><td>Sid</td></tr>
-<tr><td>27/02/2026</td><td>League</td><td>Home</td><td>Wickford Town Youth</td><td>3-7</td><td class="loss">Loss</td><td>Kiimi</td><td>Layton, Kiimi</td><td>Sid</td></tr>
-<tr><td>28/02/2026</td><td>League</td><td>Away</td><td>Hannakins Farm Girls Bears</td><td></td><td></td><td></td><td></td><td></td></tr>
+  <div class="wrap">
+    <div class="card">
+      <div class="row" style="margin-bottom:12px;">
+        <input id="search" type="text" placeholder="Search opponent, comp, MOTM, scorers…" style="flex:1;min-width:220px" />
+        <select id="filterResult">
+          <option value="">All results</option>
+          <option value="Win">Wins</option>
+          <option value="Draw">Draws</option>
+          <option value="Loss">Losses</option>
+        </select>
+        <span class="muted">Tip: tap table headers to sort.</span>
+      </div>
 
-</table>
+      <div class="scrollX">
+        <table id="tbl">
+          <thead>
+            <tr>
+              <th data-k="Date" class="nowrap">Date ▲▼</th>
+              <th data-k="Competition">Competition ▲▼</th>
+              <th data-k="H/A" class="nowrap">H/A ▲▼</th>
+              <th data-k="Opponent">Opponent ▲▼</th>
+              <th data-k="Score" class="center nowrap">Score ▲▼</th>
+              <th data-k="Result" class="nowrap">Result ▲▼</th>
+              <th data-k="MOTM">MOTM ▲▼</th>
+              <th>Scorers</th>
+              <th>Assists</th>
+            </tr>
+          </thead>
+          <tbody id="body"></tbody>
+        </table>
+      </div>
+
+      <div class="muted" style="margin-top:10px;">
+        Source: <code>results.csv</code>. Edit that file to update this page.
+      </div>
+    </div>
+  </div>
+
+<script>
+  function parseCSV(text){
+    const rows=[]; let i=0, field="", row=[], inQuotes=false;
+    while(i<text.length){
+      const c=text[i];
+      if(inQuotes){
+        if(c === '"'){
+          if(text[i+1] === '"'){ field+='"'; i++; }
+          else inQuotes=false;
+        } else field+=c;
+      } else {
+        if(c === '"') inQuotes=true;
+        else if(c === ','){ row.push(field); field=""; }
+        else if(c === '\n'){ row.push(field); rows.push(row); row=[]; field=""; }
+        else if(c !== '\r') field+=c;
+      }
+      i++;
+    }
+    if(field.length || row.length){ row.push(field); rows.push(row); }
+    return rows;
+  }
+
+  function dmyToNum(dmy){
+    const p=dmy.split('/');
+    if(p.length!==3) return 0;
+    const dd=parseInt(p[0],10)||0, mm=parseInt(p[1],10)||0, yy=parseInt(p[2],10)||0;
+    // sortable number yyyymmdd
+    return yy*10000 + mm*100 + dd;
+  }
+
+  function clsForResult(r){
+    const x=(r||"").toLowerCase();
+    if(x==="win") return "win";
+    if(x==="draw") return "draw";
+    if(x==="loss") return "loss";
+    return "";
+  }
+
+  function safeText(s){ return (s||"").replaceAll("<","&lt;").replaceAll(">","&gt;"); }
+
+  async function load(){
+    const res = await fetch('results.csv', {cache:'no-store'});
+    const text = await res.text();
+    const rows = parseCSV(text);
+    const header = rows[0].map(h=>h.trim());
+    const out=[];
+    for(let r=1;r<rows.length;r++){
+      const obj={};
+      header.forEach((h,ci)=> obj[h]=(rows[r][ci]||"").trim());
+      if(!obj["Date"] || !obj["Opponent"]) continue;
+
+      obj.Score = `${obj["Blizzards GF"]||""}-${obj["Opp GA"]||""}`;
+      obj._dateNum = dmyToNum(obj["Date"]);
+      out.push(obj);
+    }
+    return out;
+  }
+
+  let DATA=[];
+  let sortKey="Date";
+  let sortDir="desc";
+
+  function matchesFilter(m, q, resFilter){
+    const hay = [
+      m["Date"], m["Competition"], m["H/A"], m["Opponent"], m["Result"], m["MOTM"],
+      m["Scorers"], m["Assists"]
+    ].join(" ").toLowerCase();
+
+    const okQ = !q || hay.includes(q);
+    const okR = !resFilter || (m["Result"]===resFilter);
+    return okQ && okR;
+  }
+
+  function render(){
+    const q = (document.getElementById('search').value||"").trim().toLowerCase();
+    const rf = document.getElementById('filterResult').value;
+
+    let rows = DATA.filter(m=>matchesFilter(m,q,rf));
+
+    rows.sort((a,b)=>{
+      let av=a[sortKey]||"", bv=b[sortKey]||"";
+      if(sortKey==="Date"){
+        av=a._dateNum; bv=b._dateNum;
+      } else if(sortKey==="Score"){
+        // sort by goal difference then goals for
+        const [agf,aga]=a.Score.split('-').map(x=>parseInt(x,10)||0);
+        const [bgf,bga]=b.Score.split('-').map(x=>parseInt(x,10)||0);
+        av=(agf-aga)*1000 + agf;
+        bv=(bgf-bga)*1000 + bgf;
+      }
+      if(typeof av === "number" && typeof bv === "number"){
+        return sortDir==="asc" ? (av-bv) : (bv-av);
+      }
+      return sortDir==="asc" ? String(av).localeCompare(String(bv)) : String(bv).localeCompare(String(av));
+    });
+
+    const tbody=document.getElementById('body');
+    tbody.innerHTML="";
+    rows.forEach((m, idx)=>{
+      const rClass=clsForResult(m["Result"]);
+      const scorers=(m["Scorers"]||"").trim();
+      const assists=(m["Assists"]||"").trim();
+
+      const scorersShort = scorers.length>35 ? safeText(scorers.slice(0,35))+"…" : safeText(scorers||"");
+      const assistsShort = assists.length>35 ? safeText(assists.slice(0,35))+"…" : safeText(assists||"");
+
+      const tr=document.createElement('tr');
+      tr.innerHTML=`
+        <td class="nowrap">${safeText(m["Date"])}</td>
+        <td>${safeText(m["Competition"]||"")}</td>
+        <td class="nowrap">${safeText(m["H/A"]||"")}</td>
+        <td>${safeText(m["Opponent"])}</td>
+        <td class="center nowrap"><span class="pill">${safeText(m.Score)}</span></td>
+        <td class="${rClass}">${safeText(m["Result"]||"")}</td>
+        <td>${safeText(m["MOTM"]||"")}</td>
+        <td>
+          ${scorers ? `
+            <div>${scorersShort}</div>
+            ${scorers.length>35 ? `<div class="toggle" data-t="s${idx}">View</div><div id="s${idx}" class="hidden">${safeText(scorers)}</div>` : ``}
+          ` : `<span class="muted">—</span>`}
+        </td>
+        <td>
+          ${assists ? `
+            <div>${assistsShort}</div>
+            ${assists.length>35 ? `<div class="toggle" data-t="a${idx}">View</div><div id="a${idx}" class="hidden">${safeText(assists)}</div>` : ``}
+          ` : `<span class="muted">—</span>`}
+        </td>
+      `;
+      tbody.appendChild(tr);
+    });
+
+    document.querySelectorAll('.toggle').forEach(el=>{
+      el.onclick=()=>{
+        const id=el.getAttribute('data-t');
+        const target=document.getElementById(id);
+        const isHidden=target.classList.contains('hidden');
+        target.classList.toggle('hidden');
+        el.textContent = isHidden ? "Hide" : "View";
+      };
+    });
+  }
+
+  (async function(){
+    DATA = await load();
+
+    // default: newest first
+    sortKey="Date"; sortDir="desc";
+
+    document.getElementById('search').addEventListener('input', render);
+    document.getElementById('filterResult').addEventListener('change', render);
+
+    document.querySelectorAll('th[data-k]').forEach(th=>{
+      th.addEventListener('click', ()=>{
+        const k=th.getAttribute('data-k');
+        if(sortKey===k) sortDir = (sortDir==="asc" ? "desc" : "asc");
+        else { sortKey=k; sortDir="asc"; }
+        render();
+      });
+    });
+
+    render();
+  })();
+</script>
 </body>
 </html>
